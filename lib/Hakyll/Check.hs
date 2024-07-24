@@ -10,13 +10,10 @@ module Hakyll.Check
 --------------------------------------------------------------------------------
 import           Control.Concurrent.MVar      (MVar, newEmptyMVar, putMVar,
                                                readMVar)
-import           Control.Exception            (SomeAsyncException (..),
-                                               SomeException (..), throw, try)
 import           Control.Monad                (foldM, forM_)
 import           Control.Monad.Reader         (ReaderT, ask, runReaderT)
 import           Control.Monad.State          (StateT, get, modify, runStateT)
 import           Control.Monad.Trans          (liftIO)
-import           Control.Monad.Trans.Resource (runResourceT)
 import           Data.List                    (isPrefixOf)
 import qualified Data.Map.Lazy                as Map
 import           Network.URI                  (unEscapeString)
@@ -29,6 +26,9 @@ import qualified Text.HTML.TagSoup            as TS
 
 --------------------------------------------------------------------------------
 #ifdef CHECK_EXTERNAL
+import           Control.Exception            (SomeAsyncException (..),
+                                               SomeException (..), throw, try)
+import           Control.Monad.Trans.Resource (runResourceT)
 import           Data.List                    (intercalate)
 import           Data.Typeable                (cast)
 import           Data.Version                 (versionBranch)

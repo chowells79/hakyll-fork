@@ -15,7 +15,6 @@ module Hakyll.Commands
 
 
 --------------------------------------------------------------------------------
-import           Control.Concurrent
 import           System.Exit                (ExitCode)
 
 
@@ -26,7 +25,6 @@ import           Hakyll.Core.Configuration
 import           Hakyll.Core.Logger         (Logger)
 import qualified Hakyll.Core.Logger         as Logger
 import           Hakyll.Core.Rules
-import           Hakyll.Core.Rules.Internal
 import           Hakyll.Core.Runtime
 import           Hakyll.Core.Util.File
 
@@ -34,6 +32,8 @@ import           Hakyll.Core.Util.File
 --------------------------------------------------------------------------------
 #ifdef WATCH_SERVER
 import           Hakyll.Preview.Poll        (watchUpdates)
+import           Control.Concurrent
+import           Hakyll.Core.Rules.Internal
 #endif
 
 #ifdef PREVIEW_SERVER
@@ -124,7 +124,7 @@ rebuild conf logger rules =
 server :: Configuration -> Logger -> String -> Int -> IO ()
 #ifdef PREVIEW_SERVER
 server conf logger host port = do
-    let settings = previewSettings conf $ destinationDirectory conf
+    let settings = defaultStaticSettings conf
     staticServer logger settings host port
 #else
 server _ _ _ _ = previewServerDisabled

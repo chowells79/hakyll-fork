@@ -2,7 +2,8 @@
 -- | Implements a basic static file server for previewing options
 {-# LANGUAGE OverloadedStrings #-}
 module Hakyll.Preview.Server
-    ( staticServer
+    ( defaultStaticSettings
+    , staticServer
     ) where
 
 
@@ -14,8 +15,12 @@ import qualified Network.Wai                    as Wai
 import           Network.HTTP.Types.Status      (Status)
 
 --------------------------------------------------------------------------------
-import           Hakyll.Core.Logger    (Logger)
-import qualified Hakyll.Core.Logger    as Logger
+import           Hakyll.Core.Logger        (Logger)
+import qualified Hakyll.Core.Logger        as Logger
+import           Hakyll.Core.Configuration (Configuration(destinationDirectory))
+
+defaultStaticSettings :: Configuration -> Static.StaticSettings
+defaultStaticSettings = Static.defaultFileServerSettings . destinationDirectory
 
 staticServer :: Logger               -- ^ Logger
              -> Static.StaticSettings -- ^ Static file server settings

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings, CPP #-}
 module Hakyll.Core.Runtime.Tests
     ( tests
     ) where
@@ -192,7 +192,11 @@ case05 = do
                                 defaultContext
                         loadAndApplyTemplate "template-empty.html" postCtx' item
 
+#ifdef USE_PANDOC
                 pandocCompiler
+#else
+                makeItem ("post-content" :: String)
+#endif
                     >>= saveSnapshot "content"
                     >>= loadAndApplyTemplate "template-empty.html" defaultContext
                     >>= applyDefaultTemplate

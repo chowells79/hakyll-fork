@@ -8,6 +8,7 @@
 TAGS
 dist
 tags
+cabal.project.local
 cabal.sandbox.config
 .cabal-sandbox/
 .stack-work
