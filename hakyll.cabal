@@ -3,36 +3,13 @@ Version: 4.16.2.2
 
 Synopsis: A static website compiler library
 Description:
-  Hakyll is a static website compiler library. It provides you with the tools to
-  create a simple or advanced static website using a Haskell DSL and formats
-  such as markdown or RST. You can find more information, including a tutorial,
-  on the website:
-
-  .
-
-  * <http://jaspervdj.be/hakyll>
-
-  .
-
-  If you seek assistance, there's:
-
-  .
-
-  * A google group: <http://groups.google.com/group/hakyll>
-
-  .
-
-  * An IRC channel, @#hakyll@ on irc.libera.chat (we *do not* have a channel on Freenode anymore)
-
-  .
-
-  Additionally, there's the Haddock documentation in the different modules,
-  meant as a reference.
+        A Hakyll fork to clean up several things I consider to be issues.
+        .
+        Not intended to be used generally. Any bugs in this are my fault,
+        not the original author's.
 
 Author:       Jasper Van der Jeugt <m@jaspervdj.be>
-Maintainer:   Jasper Van der Jeugt <m@jaspervdj.be>
-Homepage:     http://jaspervdj.be/hakyll
-Bug-Reports:  http://github.com/jaspervdj/Hakyll/issues
+Maintainer:   Carl Howells <chowells79@gmail.com
 License:      BSD3
 License-File: LICENSE
 Category:     Web
